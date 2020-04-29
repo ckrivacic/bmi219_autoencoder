@@ -1,5 +1,16 @@
+"""
+Usage:
+    autoencoder.py [options]
+
+Options:
+    --cuda  Use GPU (not working yet :( )
+    --lr=FLOAT  Learning rate  [default: 0.001]
+    --layers=STR  comma-separated list of layer sizes  [default: 1000,500,250,2,250,500,1000]
+    --fn=STR  which function to use in hidden layers  [default: relu]
+"""
 import numpy as np
 from matplotlib import pyplot as plt
+from utils import *
 
 #%matplotlib inline
 
@@ -14,6 +25,8 @@ import torchvision
 from torchvision import datasets, transforms
 from torchvision.utils import save_image
 
+import docopt
+
 
 def dataset():
     preprocessing = transforms.Compose([
@@ -26,6 +39,7 @@ def dataset():
             transform=preprocessing)
     #print(len(train_dataset[0][0][0][0]))
     #print(len(train_dataset[0][0][0]))
+    #print(train_dataset[0][0])
 
     test_dataset = datasets.MNIST(
             './bmi219_downloads', train=False, download=True,
@@ -69,16 +83,18 @@ class Autoencoder(nn.Module):
 
     def construct_net(self, layer_sizes, fn):
         self.layers = []
+        # Add first input layer
         self.layers.append(nn.Linear(28*28, layer_sizes[0]))
         for idx, layer in enumerate(layer_sizes):
-            #if idx==0:
-            #    continue
             if idx==len(layer_sizes) - 1:
+                # We're at the last layer, so break out of loop and add
+                # output layer
                 break
             self.add_func(fn)
             self.layers.append(nn.Linear(layer_sizes[idx],
                 layer_sizes[idx + 1]))
-            #self.add_func(fn)
+
+        # Add output layer
         self.add_func(fn)
         self.layers.append(nn.Linear(layer_sizes[-1], 28*28))
         self.add_func('tanh')
@@ -121,9 +137,13 @@ def train(model,
     print(output)
 
 if __name__=='__main__':
+    args = docopt.docopt(__doc__)
+    layers = str_to_int_list(args['--layers'])
+    use_cuda = args['--cuda']
+    fn = args['--fn']
     BATCH_SIZE=128
     NUM_WORKERS=4
-    use_cuda=False
+    #use_cuda=False
     device = torch.device('cuda' if use_cuda else 'cpu')
     torch.manual_seed(7)
 
@@ -149,11 +169,11 @@ if __name__=='__main__':
     net = Autoencoder()
     if use_cuda:
         net.cuda()
-    net.construct_net([1000, 500, 250, 2, 250, 500, 1000], 'relu')
+    net.construct_net(layers, fn)
     #net.construct_net([1000,2,100], 'sigmoid')
 
     optimizer = optim.Adam(net.parameters(),
-            lr = 0.001)
+            lr = float(args['--lr']))
     criterion = nn.MSELoss()
 
     epochs = 10
