@@ -192,7 +192,8 @@ def imshow(inp,
            mean=0.1307, # for MNIST train
            std=0.3081, # for MNIST train
            title=None,
-           onpick=False):
+           onpick=False,
+           outfile=None):
     """Imshow for Tensor."""
     inp = inp.cpu().detach()
     if not onpick:
@@ -208,7 +209,9 @@ def imshow(inp,
     if title is not None:
         plt.title(title)
     plt.pause(0.001)  # pause a bit so that plots are updated
-    plt.show()
+    #plt.show()
+    if outfile is not None:
+        plt.savefig(outfile)
 
 
 def reconstructions_from_batch(model, batch, device):
