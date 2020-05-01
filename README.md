@@ -150,3 +150,19 @@ only want to do feed-forward operations.
 > ** Additional Notes **
 
 Images tracking reconstruction for the test and train datasets every 10 epochs can be found in `[default_layers or mynet ]/[test_data_tracking or train_data_tracking]`
+
+Here are some examples of test data from the "default" architecture (1000, 500, 250, 2, 250, 500, 1000).
+Input data:
+![input_data](default_layers/test_data_tracking/input_data.png)
+
+After first epoch:
+![epoch_0](default_layers/test_data_tracking/imshow_epoch_0.png)
+
+After 50th epoch:
+![epoch_50](default_layers/test_data_tracking/imshow_epoch_50.png)
+
+After 100th epoch:
+![epoch_100](default_layers/test_data_tracking/imshow_epoch_100.png)
+
+After 140th epoch:
+![epoch_140](default_layers/test_data_tracking/imshow_epoch_140.png)
