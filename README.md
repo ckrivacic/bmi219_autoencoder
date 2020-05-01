@@ -76,7 +76,12 @@ quite as well (was probably just learning slower), but wasn't tested as extensiv
 
 Sigmoid learning curve:
 ![Sigmoid](default_layers/lr_0.0001_sigmoid.png)
+
+ReLU learning curve:
 ![ReLU](default_layers/lr_0.0001.png)
+
+Note: These were done with a learning rate of 0.0001, so neither converged fully, but sigmoid 
+appeared to be moving more slowly towards convergence.
 
 
 > **Q5.1) What loss function is suited to this problem?**
