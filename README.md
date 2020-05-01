@@ -91,7 +91,7 @@ appeared to be moving more slowly towards convergence.
 
 Mean squared error, since this is a regression problem rather than a
 classification one. I used MSE rather than mean error because MSE
-penalizes outputs that are very wrong more harshly, resulting in steeper gradients.
+penalizes outputs that are very wrong more harshly, resulting in steeper gradients and therefore faster learning.
 
 > **Q5.2) Try a few optimizers, what seemed to work best?**
 
