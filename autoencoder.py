@@ -12,6 +12,7 @@ Options:
     --compare=STR, -c  Compare to another loss function
     --outfolder=STR, -o  Where to save everything  [default: default_layers]
     --track, -t  Track progress of image reconstruction
+    --batch_size=NUM  Change the batch size  [default: 128]
 """
 from functions import *
 import os
@@ -25,7 +26,7 @@ if __name__=='__main__':
     outfolder = args['--outfolder']
     if not os.path.exists(outfolder):
         os.makedirs(outfolder, exist_ok=True)
-    BATCH_SIZE=128
+    BATCH_SIZE=int(args['--batch_size'])
     NUM_WORKERS=8
     #use_cuda=False
     device = torch.device('cuda' if use_cuda else 'cpu')
