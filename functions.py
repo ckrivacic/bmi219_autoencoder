@@ -44,21 +44,28 @@ def dataset():
     return train_dataset, test_dataset
 
 
+def face_dataset():
+    preprocessing = transforms.Compose([
+    transforms.Grayscale(),
+    transforms.ToTensor(),
+    transforms.Normalize((0.4401,), (0.2407,)),
+    ])
+
+    train_dataset = datasets.ImageFolder(
+        'bmi219_downloads/Faces/train',
+        transform=preprocessing)
+
+    test_dataset = datasets.ImageFolder(
+        'bmi219_downloads/Faces/test',
+        transform=preprocessing)
+
+    return train_dataset, test_dataset
+
+
 class Autoencoder(nn.Module):
     def __init__(self, input_dim=28*28):
         super(Autoencoder, self).__init__()
-        '''
-        self.layers = []
-        self.layers.append(nn.Linear(28*28, 1000))
-        self.layers.append(nn.Linear(1000, 500))
-        self.layers.append(nn.Linear(500, 250))
-        self.layers.append(nn.Linear(250, 2))
-        self.layers.append(nn.Linear(2, 250))
-        self.layers.append(nn.Linear(250, 500))
-        self.layers.append(nn.Linear(500, 1000))
-
-        self.net = nn.Sequential(*layers)
-        '''
+        self.input_dim = input_dim
 
     def add_func(self, func):
         if func=='relu':
@@ -83,7 +90,7 @@ class Autoencoder(nn.Module):
     def construct_net(self, layer_sizes, fn, device):
         self.layers = []
         # Add first input layer
-        self.layers.append(nn.Linear(28*28, layer_sizes[0]))
+        self.layers.append(nn.Linear(self.input_dim, layer_sizes[0]))
         for idx, layer in enumerate(layer_sizes):
             if idx==len(layer_sizes) - 1:
                 # We're at the last layer, so break out of loop and add
@@ -96,7 +103,7 @@ class Autoencoder(nn.Module):
 
         self.add_func(fn)
         # Add output layer
-        self.layers.append(nn.Linear(layer_sizes[-1], 28*28))
+        self.layers.append(nn.Linear(layer_sizes[-1], self.input_dim))
         #self.add_func('tanhshrink')
         self.net = nn.Sequential(*self.layers)
         for layer in self.net:

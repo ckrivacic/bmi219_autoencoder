@@ -14,6 +14,7 @@ Options:
     --track, -t  Track progress of image reconstruction
     --batch_size=NUM  Change the batch size  [default: 128]
     --load_df=PATH, -df  load a previously generated df of models
+    --face  Run on CelebA Faces
 """
 from functions import *
 import os
@@ -42,11 +43,18 @@ if __name__=='__main__':
     #print(df['model'])
     BATCH_SIZE=int(args['--batch_size'])
     NUM_WORKERS=8
+    if args['--face']:
+        dim=524288
+    else:
+        dim = 784
     #use_cuda=False
     device = torch.device('cuda' if use_cuda else 'cpu')
     torch.manual_seed(7)
-
-    train_dataset, test_dataset = dataset()
+    
+    if args['--face']:
+        train_dataset, test_dataset = face_dataset()
+    else:
+        train_dataset, test_dataset = dataset()
 
     train_loader = torch.utils.data.DataLoader(
             train_dataset,
@@ -66,7 +74,7 @@ if __name__=='__main__':
     '''
 
     if df is None:
-        net = Autoencoder()
+        net = Autoencoder(input_dim=dim)
         if use_cuda:
             net.cuda()
         net.construct_net(layers, fn, device)
