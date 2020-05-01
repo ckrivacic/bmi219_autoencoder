@@ -111,7 +111,7 @@ epoch 43 the loss went to nan. Before this, loss looked pretty normal so
 I'm not sure what's happening here. No image due to NAN loss.
 
 Adam seems to work about as well as RMSprop and was used for the rest of this work.
-[!Adam](default_layers/lr_0.0005.png)
+![Adam](default_layers/lr_0.0005.png)
 
 > **Q5.3) What's the effect of choosing different batch sizes?**
 
