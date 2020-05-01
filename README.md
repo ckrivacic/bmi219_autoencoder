@@ -2,8 +2,8 @@
 
 
 
-> Question 0.1) Why is it important to set the seed for the random number
-generator?
+> **Question 0.1) Why is it important to set the seed for the random number
+generator?**
 
 This is probably used to seed the weights. If we want to play around
 with hyperparameters, it's best to compare networks that have been
@@ -108,7 +108,7 @@ overfits. The validation set helps us tell when the model is minimized
 but still generalizable.
 
 
-**Q6.2) What does `torch.no_grad()` do?**
+> **Q6.2) What does `torch.no_grad()` do?**
 
 Turns off the gradient so that we are not wasting memory on it when we
 only want to do feed-forward operations.
