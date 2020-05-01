@@ -22,7 +22,9 @@ Each input is a tuple of a 28x28 matrix of pixels and a label (0-9).
 > **Q1.3) Why do we normalize the input data for neural networks?**
 
 Large numbers can make the gradients very shallow during
-back-propogation, making training very slow.
+back-propogation, making training very slow. We normalize to get data in a regime 
+where activation by nonlinear functions like the sigmoid function won't immediately 
+result in a shallow gradient regardless of the starting weights.
 
 
 > **Q1.4) In this scenario, MNIST is already split into a training set 
