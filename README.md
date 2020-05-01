@@ -75,7 +75,7 @@ is not the case in an autoencoder).
 I started with ReLU because if the initial weights are significantly off, it has a
 relatively strong gradient it can follow compared to the plateau of
 some other nonlinear functions. Sigmoid didn't seem to work
-quite as well.
+quite as well, so the remainder of the data will be using ReLU.
 
 Sigmoid learning curve:
 ![Sigmoid](default_layers/lr_0.0001_sigmoid.png)
