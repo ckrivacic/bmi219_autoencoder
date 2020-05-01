@@ -170,7 +170,7 @@ After 140th epoch:
 
 ## ** Visualizing Latent Space **
 
-Latent space qualitatively correlates with convergence. The model trained with a high learning rate (r=0.01), for instance, had a terrible looking latent space:
+Latent space qualitatively correlates with convergence. The model trained with a high learning rate (r=0.01), for instance, had a latent space with little separation between classes and with a long tail for labels 5 and 7:
 
 
 ![lr_0.01](default_layers/latent_lr_0.01.png)
@@ -180,7 +180,7 @@ in the latent space that categories do not cleanly separate.
 
 ![full_batch](default_layers/latent_lr_0.0005_fullbatch.png)
 
-The best model (lr=0.0005, converged, Adam optimizer, ReLU) had better separation but still had some trouble areas with numbers that are close to several others in apperance.
+The best model (in terms of loss conergence) (lr=0.0005, converged, Adam optimizer, ReLU) had better separation overall but still had some trouble areas with numbers that are close to several others in apperance, such as issues clustering threes in latent space.
 
 ![best](default_layers/latent_lr_0.0005.png)
 
