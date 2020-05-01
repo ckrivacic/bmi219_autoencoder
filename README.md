@@ -33,10 +33,10 @@ into training, validation, and test sets is usually preferred, why?**
 It is possible for a neural net to memorize many of the features of the
 training set. The test set ensures that the neural net works on data
 that it hasn't ever seen before, ensuring generalizability.
-While a test set is used to evaluate the model parameters, a validation
-set is used to evaluate the model hyperparameters. The reason it is
-preferred to have a separate validation and test set is that the
-hyperpararmeters may be biased towards the validation set.
+While a test set is used to evaluate the model parameters once trained, a validation
+set is used to evaluate the model hyperparameters during training. While the validation set 
+does not directly influence the gradient, it can still bias the model since we 
+will choose hyperparameters based on the model's performance on the validation set.
 
 
 > **Q2.1) It's recommended to shuffle the training data over each epoch, 
