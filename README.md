@@ -102,20 +102,15 @@ default architecture of 1000 -> 500 -> 250 -> 2 -> 250 -> 500 -> 1000.
 Batch size was 128.
 
 RProp was very slow, both in terms of convergence and the computational time 
-it took to compute the gradients for each batch. Interestingly it was very smooth,
-indicating that the momentum used was effective (though possibly more effective than is desirable).
+it took to compute the gradients for each batch. Interestingly its learning curve was very smooth,
+which is because this optimizer scales down updates when the gradient's sign changes compared to the previous step.
 ![Rprop](default_layers/lr_0.0005_rprop.png)
 
-RMSprop learned much faster, suggesting the way it calculates momentum may be 
-stronger.
+RMSprop learned much faster than RProp, probably due to learning rate scaling.
 ![RMSprop](default_layers/lr_0.0005_rmsprop.png)
 
-SGD (mini-batch gradient descent) tended to move loss much more slowly. No image.
-SGD with momentum moved loss much more quickly than SGD, but eventually around
-epoch 43 the loss went to nan. Before this, loss looked pretty normal so
-I'm not sure what's happening here. No image due to NAN loss.
-
-Adam seems to work the best.
+Adam seems to work the best, working more smoothly than RMSprop and faster than RProp. This is because it 
+both has momentum and learning rate scaling.
 ![Adam](default_layers/lr_0.0005.png)
 
 > **Q5.3) What's the effect of choosing different batch sizes?**
