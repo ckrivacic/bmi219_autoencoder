@@ -3,7 +3,7 @@ Usage:
     autoencoder.py [options]
 
 Options:
-    --cuda  Use GPU (not working yet :( )
+    --cuda  Use GPU
     --lr=FLOAT, -l  Learning rate  [default: 0.001]
     --layers=STR  comma-separated list of layer sizes  [default: 1000,500,250,2,250,500,1000]
     --fn=STR, -f  which function to use in hidden layers  [default: relu]
