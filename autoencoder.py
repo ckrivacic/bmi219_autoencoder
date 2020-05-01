@@ -14,7 +14,7 @@ Options:
     --track, -t  Track progress of image reconstruction
     --batch_size=NUM  Change the batch size  [default: 128]
     --load_df=PATH, -df  load a previously generated df of models
-    --face  Run on CelebA Faces
+    --face  Run on CelebA Faces (NOT working)
 """
 from functions import *
 import os
