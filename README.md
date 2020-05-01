@@ -72,10 +72,10 @@ is not the case in an autoencoder).
 
 > **Q3.1) What activation functions did you use, and why?**
 
-Starting with ReLU because if the initial weights are significantly off, it has a
+I started with ReLU because if the initial weights are significantly off, it has a
 relatively strong gradient it can follow compared to the plateau of
-other functions. Sigmoid didn't seem to work
-quite as well (was probably just learning slower), but wasn't tested as extensively.
+some other nonlinear functions. Sigmoid didn't seem to work
+quite as well.
 
 Sigmoid learning curve:
 ![Sigmoid](default_layers/lr_0.0001_sigmoid.png)
