@@ -147,7 +147,7 @@ Turns off the gradient so that we are not wasting memory on it when we
 only want to do feed-forward operations.
 
 
-> ** Additional Notes **
+> ** Visualizing Training Progress **
 
 Images tracking reconstruction for the test and train datasets every 10 epochs can be found in `[default_layers or mynet ]/[test_data_tracking or train_data_tracking]`
 
@@ -166,3 +166,17 @@ After 100th epoch:
 
 After 140th epoch:
 ![epoch_140](default_layers/test_data_tracking/imshow_epoch_140.png)
+
+
+> ** Visualizing Latent Space **
+
+Latent space qualitatively correlates with convergence. The high learning rate, for instance, had a terrible looking latent space:
+
+![lr_0.01](default_layers/latent_lr_0.01.png)
+
+Similarly, using the full batch example, which didn't fully converge, we can see 
+in the latent space that categories do not cleanly separate.
+![full_batch](default_layers/latent_lr_0.0005_fullbatch.png)
+
+The best model (lr=0.0005, converged, Adam optimizer, ReLU) had better separation but still had some trouble areas.
+![best](default_layers/latent_lr_0.0005.png)
