@@ -214,3 +214,8 @@ Epoch 80:
 Epoch 140:
 
 ![epoch_140](mynet/test_data_tracking/imshow_epoch_140.png)
+
+
+Latent space:
+
+![latent_space](mynet/latentspace.png)
