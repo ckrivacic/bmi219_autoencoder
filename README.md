@@ -8,7 +8,9 @@ generator?**
 
 This is probably used to seed the weights. If we want to play around
 with hyperparameters, it's best to compare networks that have been
-seeded with the same rng. (?)
+seeded with the same rng, otherwise the choice of initial weights will make 
+it hard to determine which set of hyperparameters are best. It also helps with 
+reproducibility in case someone else wants to re-train your network.
 
 > **Q1.1) How many examples do the training set and test set have?**
 
