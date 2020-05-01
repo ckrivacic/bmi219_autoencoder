@@ -147,7 +147,7 @@ Turns off the gradient so that we are not wasting memory on it when we
 only want to do feed-forward operations.
 
 
-> ** Visualizing Training Progress **
+##> ** Visualizing Training Progress **
 
 Images tracking reconstruction for the test and train datasets every 10 epochs can be found in `[default_layers or mynet ]/[test_data_tracking or train_data_tracking]`
 
@@ -168,7 +168,7 @@ After 140th epoch:
 ![epoch_140](default_layers/test_data_tracking/imshow_epoch_140.png)
 
 
-> ** Visualizing Latent Space **
+##> ** Visualizing Latent Space **
 
 Latent space qualitatively correlates with convergence. The high learning rate, for instance, had a terrible looking latent space:
 
@@ -188,7 +188,7 @@ The best model (lr=0.0005, converged, Adam optimizer, ReLU) had better separatio
 Note: If you run plot_latentspace(\*args), you can click on any spot and see what the decoder half of the model predicts for those two latent variables.
 
 
-> ** My Neural Net **
+##> ** My Neural Net **
 
 I constructed a net with a smaller architecture of 500, 200, 2, 200, 500 with ReLU nonlinear terms. It trained much faster than the previous neural net with only slightly worse loss, though I was able to observe the beginning of the overfitting regime with this architecture (training set loss kept getting better while test set plateaued).
 
