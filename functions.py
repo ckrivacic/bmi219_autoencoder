@@ -121,11 +121,12 @@ def train(model,
         criterion,
         epoch,
         log_interval=50,
-        compare=None):
+        compare=None,
+        dim=28*28):
     model.train()
     #correct = 0
     for batch_idx, (data, target) in enumerate(train_loader):
-        data = data.view(-1, 28*28) # flatten into 1D array for dense nn
+        data = data.view(-1, dim) # flatten into 1D array for dense nn
         #print(max(data[0]))
         #print(min(data[0]))
         target = data.to(device)#, target.to(device)

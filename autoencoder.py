@@ -98,7 +98,8 @@ if __name__=='__main__':
                     train_loader,
                     optimizer,
                     criterion,
-                    epoch, compare=compare_criterion)
+                    epoch, compare=compare_criterion,
+                    dim=dim)
             if loss < best_loss: 
                 best_loss = loss
                 best_model = copy.deepcopy(net)
