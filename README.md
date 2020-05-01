@@ -170,7 +170,7 @@ After 140th epoch:
 
 ## ** Visualizing Latent Space **
 
-Latent space qualitatively correlates with convergence. The high learning rate, for instance, had a terrible looking latent space:
+Latent space qualitatively correlates with convergence. The model trained with a high learning rate (r=0.01), for instance, had a terrible looking latent space:
 
 
 ![lr_0.01](default_layers/latent_lr_0.01.png)
@@ -220,4 +220,4 @@ Epoch 140:
 
 ![latent_space](mynet/latentspace.png)
 
-Note that this simpler model actually has more easily identifiable classes than the default architecture, suggesting it may be more generalizable.
+Note that this simpler model actually has smoother transitions between classes, suggesting it may be more generalizable.
