@@ -219,3 +219,5 @@ Epoch 140:
 Latent space:
 
 ![latent_space](mynet/latentspace.png)
+
+Note that this simpler model actually has more easily identifiable classes than the default architecture, suggesting it may be more generalizable.
