@@ -93,14 +93,25 @@ learning.
 
 > **Q5.2) Try a few optimizers, what seemed to work best?**
 
-RProp=slow
-RMSprop = faster, and almost immediately gets down to ~0.7 (which is
-where things typically stay for a long while)
-SGD = moves loss slowly.
-SGD with momentum = moves loss much more quickly, but eventually around
+Note: All images below were generated with a learning rate of 0.0005, using the 
+default architecture of 1000 -> 500 -> 250 -> 2 -> 250 -> 500 -> 1000.
+Batch size was 128.
+
+RProp was very slow, both in terms of convergence and the computational time 
+it took to compute the gradients for each batch.
+![Rprop](default_layers/lr_0.0005_rprop.png)
+
+RMSprop learned much faster, suggesting the way it calculates momentum may be 
+stronger.
+![RMSprop](default_layers/lr_0.0005_rmsprop.png)
+
+SGD (mini-batch gradient descent) tended to move loss much more slowly. No image.
+SGD with momentum moved loss much more quickly than SGD, but eventually around
 epoch 43 the loss went to nan. Before this, loss looked pretty normal so
-I'm not sure what's happening here.
-Adam seems to work as well as any others.
+I'm not sure what's happening here. No image due to NAN loss.
+
+Adam seems to work about as well as RMSprop and was used for the rest of this work.
+[!Adam](default_layers/lr_0.0005.png)
 
 > **Q5.3) What's the effect of choosing different batch sizes?**
 
