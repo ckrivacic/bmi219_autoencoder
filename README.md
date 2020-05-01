@@ -100,7 +100,8 @@ default architecture of 1000 -> 500 -> 250 -> 2 -> 250 -> 500 -> 1000.
 Batch size was 128.
 
 RProp was very slow, both in terms of convergence and the computational time 
-it took to compute the gradients for each batch.
+it took to compute the gradients for each batch. Interestingly it was very smooth,
+indicating that the momentum used was effective (though possibly more effective than is desirable).
 ![Rprop](default_layers/lr_0.0005_rprop.png)
 
 RMSprop learned much faster, suggesting the way it calculates momentum may be 
