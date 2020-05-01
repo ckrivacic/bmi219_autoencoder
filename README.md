@@ -149,4 +149,4 @@ only want to do feed-forward operations.
 
 > ** Additional Notes **
 
-Images tracking reconstruction for the test and train datasets every 10 epochs can be found in \[default_layers or mynet \]/\[test_data_tracking or train_data_tracking\]
+Images tracking reconstruction for the test and train datasets every 10 epochs can be found in `\[default_layers or mynet \]/\[test_data_tracking or train_data_tracking\]`
