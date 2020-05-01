@@ -96,20 +96,11 @@ if __name__=='__main__':
                 best_model = copy.deepcopy(net)
             row = {}
             row['epoch'] = epoch
-            if epoch%10==0: 
-                #Before I was saving every epoch but those files
-                # were getting huge
-                row['model'] = copy.deepcopy(net)
-            else:
-                row['model'] = None
+            row['model'] = copy.deepcopy(net)
             row['loss'] = evaluate(net, device, train_loader, criterion)
             row['test'] = evaluate(net, device, test_loader, criterion)
             rows.append(row)
 
-        rows.append({'epoch': epoch + 1, 'model': best_model, 
-            'loss': evaluate(best_model, device, train_loader,
-                criterion),
-            'test': evaluate(best_model, device, test_loader, criterion)})
 
         df = pd.DataFrame(rows)
         df.to_pickle(os.path.join(outfolder,'epochs.pkl'))
