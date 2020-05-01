@@ -145,3 +145,8 @@ but still generalizable.
 
 Turns off the gradient so that we are not wasting memory on it when we
 only want to do feed-forward operations.
+
+
+> ** Additional Notes **
+
+Images tracking reconstruction for the test and train datasets every 10 epochs can be found in \[default_layers\ \| mynet \]/\[test_data_tracking \| train_data_tracking\]
