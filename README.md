@@ -122,6 +122,15 @@ Larger batches can cause overfitting due to converging on sharp local
 minima, but train faster and follow a smoother path to the optimal
 paramters than smaller batches.
 
+Larger batch sizes also require a larger learning rate since the gradient 
+is applied less often. For an extreme example, see below for batch size of 
+128 vs. batch size of 60,000 with a learning rate of 0.0005.
+
+Batch size=128:
+![Batch size=128](default_layers/lr_0.0005.png)
+
+Batch size = 60,000:
+![Batch size=60,000](default_layers/lr_0.0005_fullbatch.png)
 
 > **Q6.1)  How do you know when your network is done training?**
 
