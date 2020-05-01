@@ -185,4 +185,4 @@ The best model (lr=0.0005, converged, Adam optimizer, ReLU) had better separatio
 ![best](default_layers/latent_lr_0.0005.png)
 
 
-Note: If you run plot_latentspace(\*args), you can click on any spot and see what the model predicts for those two inputs.
+Note: If you run plot_latentspace(\*args), you can click on any spot and see what the decoder half of the model predicts for those two latent variables.
