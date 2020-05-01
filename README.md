@@ -127,7 +127,7 @@ paramters than smaller batches.
 
 When the loss plateaus. Ideally, you would also be evaluating a
 validation set, and use the parameters where the validation set is at
-its lowest, since the test set can continue plateauing while the model
+its lowest, since the test set can continue plateauing or improving while the model
 overfits. The validation set helps us tell when the model is minimized
 but still generalizable.
 
