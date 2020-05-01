@@ -193,3 +193,24 @@ Note: If you run plot_latentspace(\*args), you can click on any spot and see wha
 I constructed a net with a smaller architecture of 500, 200, 2, 200, 500 with ReLU nonlinear terms. It trained much faster than the previous neural net with only slightly worse loss, though I was able to observe the beginning of the overfitting regime with this architecture.
 
 ![my_training](mynet/training.png)
+
+
+Images from training are below.
+
+Inputs:
+
+![inputs](mynet/test_data_tracking/input_data.png)
+
+Epoch 0:
+
+![epoch_0](mynet/test_data_tracking/imshow_epoch_0.png)
+
+
+Epoch 80:
+
+![epoch_80](mynet/test_data_tracking/imshow_epoch_80.png)
+
+
+Epoch 140:
+
+![epoch_140](mynet/test_data_tracking/imshow_epoch_140.png)
